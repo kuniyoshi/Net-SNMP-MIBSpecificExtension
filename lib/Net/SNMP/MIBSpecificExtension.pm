@@ -71,8 +71,8 @@ sub handle {
         getnext => "handle_getnext",
         set     => "handle_set",
     );
-    my $method = $method{ $request->{method} }
-        or Carp::croak( "Unknown method given: [$request->{method}]" );
+    my $method = $method{ $request->method }
+        or Carp::croak( "Unknown method given: [", $request->method, "]" );
     return $self->$method( $request );
 }
 
