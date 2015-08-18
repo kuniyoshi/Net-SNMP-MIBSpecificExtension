@@ -12,6 +12,7 @@ sub new {
         unless defined $self{method}; # stdin is closed, then parent may finish looping.
 
     chomp $self{method};
+    $self{method} = lc $self{method};
 
     if ( $self{method} eq "get" ) {
         chomp( $self{oid} = <> );
